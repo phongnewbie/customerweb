@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Chức năng đặt hàng MéLi's Dessert</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .demo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .demo-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .demo-step {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #d4a574;
+        }
+        .demo-step h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .demo-step-number {
+            background: #d4a574;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .demo-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .demo-links a {
+            background: #d4a574;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .demo-links a:hover {
+            background: #c19a6b;
+            transform: translateY(-2px);
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .feature-list i {
+            color: #28a745;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MéLi's Dessert</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="order.html" class="nav-link">Đặt hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders.html" class="nav-link">Lịch sử đơn hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">Về chúng tôi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link">Đăng ký</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Demo Content -->
+    <section class="demo-container">
+        <div class="demo-section">
+            <h1><i class="fas fa-shopping-cart"></i> Demo Chức năng Đặt hàng</h1>
+            <p>Hướng dẫn sử dụng đầy đủ chức năng đặt hàng của website MéLi's Dessert</p>
+            
+            <div class="demo-steps">
+                <div class="demo-step">
+                    <h4>
+                        <span class="demo-step-number">1</span>
+                        Đăng ký tài khoản
+                    </h4>
+                    <p>Tạo tài khoản mới để có thể đặt hàng và xem lịch sử đơn hàng</p>
+                    <div class="demo-links">
+                        <a href="register.html"><i class="fas fa-user-plus"></i> Đăng ký</a>
+                    </div>
+                </div>
+                
+                <div class="demo-step">
+                    <h4>
+                        <span class="demo-step-number">2</span>
+                        Xem Menu
+                    </h4>
+                    <p>Khám phá các món bánh Pháp thơm ngon và thêm vào giỏ hàng</p>
+                    <div class="demo-links">
+                        <a href="menu.html"><i class="fas fa-utensils"></i> Xem Menu</a>
+                    </div>
+                </div>
+                
+                <div class="demo-step">
+                    <h4>
+                        <span class="demo-step-number">3</span>
+                        Quản lý giỏ hàng
+                    </h4>
+                    <p>Xem, chỉnh sửa số lượng và xóa sản phẩm trong giỏ hàng</p>
+                    <div class="demo-links">
+                        <a href="cart.html"><i class="fas fa-shopping-bag"></i> Giỏ hàng</a>
+                    </div>
+                </div>
+                
+                <div class="demo-step">
+                    <h4>
+                        <span class="demo-step-number">4</span>
+                        Đặt hàng
+                    </h4>
+                    <p>Điền thông tin giao hàng và xác nhận đơn hàng</p>
+                    <div class="demo-links">
+                        <a href="order.html"><i class="fas fa-credit-card"></i> Đặt hàng</a>
+                    </div>
+                </div>
+                
+                <div class="demo-step">
+                    <h4>
+                        <span class="demo-step-number">5</span>
+                        Xem lịch sử
+                    </h4>
+                    <p>Theo dõi trạng thái và xem lại các đơn hàng đã đặt</p>
+                    <div class="demo-links">
+                        <a href="orders.html"><i class="fas fa-history"></i> Lịch sử</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2><i class="fas fa-star"></i> Tính năng chính</h2>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Đăng ký và đăng nhập tài khoản</li>
+                <li><i class="fas fa-check-circle"></i> Xem menu với hình ảnh và mô tả chi tiết</li>
+                <li><i class="fas fa-check-circle"></i> Thêm sản phẩm vào giỏ hàng</li>
+                <li><i class="fas fa-check-circle"></i> Quản lý số lượng sản phẩm trong giỏ hàng</li>
+                <li><i class="fas fa-check-circle"></i> Xóa sản phẩm khỏi giỏ hàng</li>
+                <li><i class="fas fa-check-circle"></i> Điền thông tin giao hàng</li>
+                <li><i class="fas fa-check-circle"></i> Chọn thời gian giao hàng</li>
+                <li><i class="fas fa-check-circle"></i> Xem tóm tắt đơn hàng trước khi xác nhận</li>
+                <li><i class="fas fa-check-circle"></i> Tính phí giao hàng tự động</li>
+                <li><i class="fas fa-check-circle"></i> Xem lịch sử đơn hàng</li>
+                <li><i class="fas fa-check-circle"></i> Theo dõi trạng thái đơn hàng</li>
+                <li><i class="fas fa-check-circle"></i> Giao diện responsive trên mọi thiết bị</li>
+            </ul>
+        </div>
+        
+        <div class="demo-section">
+            <h2><i class="fas fa-info-circle"></i> Tài khoản demo</h2>
+            <p>Bạn có thể sử dụng tài khoản demo sau để test chức năng:</p>
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <strong>Email:</strong> demo@example.com<br>
+                <strong>Mật khẩu:</strong> 123456
+            </div>
+            <div class="demo-links">
+                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Đăng nhập demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MéLi's Dessert</h3>
+                    <p>Hương vị Pháp đích thực</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@melis-dessert.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Giờ mở cửa</h4>
+                    <p>Thứ 2 - Thứ 6: 7:00 - 21:00</p>
+                    <p>Thứ 7 - Chủ nhật: 8:00 - 22:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MéLi's Dessert. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

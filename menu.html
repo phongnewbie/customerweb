@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - MéLi's Dessert</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MéLi's Dessert</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="menu.html" class="nav-link active">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="order.html" class="nav-link">Đặt hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders.html" class="nav-link">Lịch sử đơn hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">Về chúng tôi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" id="loginLink">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link" id="registerLink">Đăng ký</a>
+                </li>
+                <li class="nav-item dropdown" id="userDropdown" style="display: none;">
+                    <a href="#" class="nav-link dropdown-toggle" id="userNameLink">
+                        <span id="userNameText">Tên người dùng</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item" id="logoutLink">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="menu-header">
+        <div class="container">
+            <h1>Menu của chúng tôi</h1>
+            <p>Khám phá hương vị Pháp đích thực với những món tráng miệng tinh tế</p>
+        </div>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="menu-categories">
+        <div class="container">
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">Tất cả</button>
+                <button class="category-btn" data-category="pastries">Bánh ngọt</button>
+                <button class="category-btn" data-category="cakes">Bánh kem</button>
+                <button class="category-btn" data-category="desserts">Tráng miệng</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Grid -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid">
+                <!-- Menu items will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Sẵn sàng thưởng thức?</h2>
+                <p>Đặt hàng ngay để nhận được những món tráng miệng tươi ngon nhất</p>
+                <div class="cta-buttons">
+                    <a href="order.html" class="btn btn-primary">Đặt hàng ngay</a>
+                    <a href="cart.html" class="btn btn-secondary">Xem giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MéLi's Dessert</h3>
+                    <p>Hương vị Pháp đích thực</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@melis-dessert.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Giờ mở cửa</h4>
+                    <p>Thứ 2 - Thứ 6: 7:00 - 21:00</p>
+                    <p>Thứ 7 - Chủ nhật: 8:00 - 22:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MéLi's Dessert. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

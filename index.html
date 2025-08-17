@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MéLi's Dessert - Tiệm Bánh Pháp</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MéLi's Dessert</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="order.html" class="nav-link">Đặt hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders.html" class="nav-link">Lịch sử đơn hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">Về chúng tôi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" id="loginLink">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link" id="registerLink">Đăng ký</a>
+                </li>
+                <li class="nav-item dropdown" id="userDropdown" style="display: none;">
+                    <a href="#" class="nav-link dropdown-toggle" id="userNameLink">
+                        <span id="userNameText">Tên người dùng</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item" id="logoutLink">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Chào mừng đến với MéLi's Dessert</h1>
+            <p>Khám phá hương vị Pháp đích thực với những món tráng miệng tinh tế</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">Xem Menu</a>
+                <a href="order.html" class="btn btn-secondary">Đặt hàng ngay</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="French Pastries">
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured">
+        <div class="container">
+            <h2>Món Nổi Bật</h2>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Macaron">
+                    <h3>Macaron</h3>
+                    <p>Bánh macaron truyền thống Pháp với nhiều hương vị</p>
+                    <span class="price">45.000đ</span>
+                </div>
+                <div class="featured-item">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Croissant">
+                    <h3>Croissant</h3>
+                    <p>Bánh sừng bò Pháp giòn xốp, thơm bơ</p>
+                    <span class="price">35.000đ</span>
+                </div>
+                <div class="featured-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Eclair">
+                    <h3>Éclair</h3>
+                    <p>Bánh éclair với kem sữa trứng và chocolate</p>
+                    <span class="price">55.000đ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section class="menu-preview">
+        <div class="container">
+            <h2>Menu của chúng tôi</h2>
+            <p class="section-subtitle">Khám phá đa dạng các món tráng miệng Pháp tinh tế</p>
+            <div class="menu-preview-grid">
+                <div class="menu-preview-item">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Macaron">
+                    <h3>Macaron</h3>
+                    <p>Bánh macaron truyền thống Pháp với nhiều hương vị</p>
+                    <span class="price">45.000đ</span>
+                </div>
+                <div class="menu-preview-item">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Croissant">
+                    <h3>Croissant</h3>
+                    <p>Bánh sừng bò Pháp giòn xốp, thơm bơ</p>
+                    <span class="price">35.000đ</span>
+                </div>
+                <div class="menu-preview-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Eclair">
+                    <h3>Éclair</h3>
+                    <p>Bánh éclair với kem sữa trứng và chocolate</p>
+                    <span class="price">55.000đ</span>
+                </div>
+                <div class="menu-preview-item">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Pain au Chocolat">
+                    <h3>Pain au Chocolat</h3>
+                    <p>Bánh sừng bò nhân chocolate đen</p>
+                    <span class="price">40.000đ</span>
+                </div>
+                <div class="menu-preview-item">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tarte Tatin">
+                    <h3>Tarte Tatin</h3>
+                    <p>Bánh táo caramel truyền thống Pháp</p>
+                    <span class="price">85.000đ</span>
+                </div>
+                <div class="menu-preview-item">
+                    <img src="data:image/jpeg;base64,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" alt="Crème Brûlée">
+                    <h3>Crème Brûlée</h3>
+                    <p>Kem trứng caramel với lớp đường cháy</p>
+                    <span class="price">65.000đ</span>
+                </div>
+            </div>
+            <div class="menu-preview-cta">
+                <a href="menu.html" class="btn btn-primary">Xem toàn bộ menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-preview">
+        <div class="container">
+            <div class="about-content">
+                <h2>Về MéLi's Dessert</h2>
+                <p>Được thành lập bởi Madam Yuan, MéLi's Dessert mang đến những món tráng miệng Pháp đích thực với công thức truyền thống và nguyên liệu chất lượng cao. Chúng tôi tự hào phục vụ những món bánh ngọt tinh tế, đẹp mắt và ngon miệng.</p>
+                <a href="about.html" class="btn btn-outline">Tìm hiểu thêm</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bakery">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MéLi's Dessert</h3>
+                    <p>Hương vị Pháp đích thực</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@melis-dessert.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Giờ mở cửa</h4>
+                    <p>Thứ 2 - Thứ 6: 7:00 - 21:00</p>
+                    <p>Thứ 7 - Chủ nhật: 8:00 - 22:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MéLi's Dessert. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
