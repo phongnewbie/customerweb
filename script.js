@@ -472,6 +472,12 @@ function initOrderPage() {
         });
     }
     
+    // Initialize new features
+    initBillingAddress();
+    initCreditCardValidation();
+    initCreditCardExpiryValidation();
+    initCreditCardCvvValidation();
+    
     // Display order summary
     displayOrderSummary();
 }
@@ -739,6 +745,28 @@ function initLoginPage() {
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
+        
+        // Add real-time validation
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        
+        if (emailInput) {
+            emailInput.addEventListener('input', () => {
+                const emailError = document.getElementById('emailError');
+                if (emailError && emailError.style.display === 'block') {
+                    emailError.style.display = 'none';
+                }
+            });
+        }
+        
+        if (passwordInput) {
+            passwordInput.addEventListener('input', () => {
+                const passwordError = document.getElementById('passwordError');
+                if (passwordError && passwordError.style.display === 'block') {
+                    passwordError.style.display = 'none';
+                }
+            });
+        }
     }
 }
 
@@ -749,9 +777,23 @@ function handleLogin(e) {
     const email = formData.get('email');
     const password = formData.get('password');
 
-    // Simple validation
-    if (!email || !password) {
-        showMessage('Vui lòng điền đầy đủ thông tin!', 'error');
+    // Clear previous error messages
+    clearLoginErrors();
+
+    // Validation
+    let hasErrors = false;
+    
+    if (!email || email.trim() === '') {
+        showLoginError('emailError', 'Vui lòng nhập email');
+        hasErrors = true;
+    }
+    
+    if (!password || password.trim() === '') {
+        showLoginError('passwordError', 'Vui lòng nhập mật khẩu');
+        hasErrors = true;
+    }
+
+    if (hasErrors) {
         return;
     }
 
@@ -773,11 +815,68 @@ function handleLogin(e) {
     }, 1000);
 }
 
+function showLoginError(errorId, message) {
+    const errorElement = document.getElementById(errorId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+}
+
+function clearLoginErrors() {
+    const errorElements = document.querySelectorAll('#loginForm .error-message');
+    errorElements.forEach(element => {
+        element.style.display = 'none';
+    });
+}
+
 // Register page functionality
 function initRegisterPage() {
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
         registerForm.addEventListener('submit', handleRegister);
+        
+        // Add real-time validation
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        
+        if (nameInput) {
+            nameInput.addEventListener('input', () => {
+                const nameError = document.getElementById('nameError');
+                if (nameError && nameError.style.display === 'block') {
+                    nameError.style.display = 'none';
+                }
+            });
+        }
+        
+        if (emailInput) {
+            emailInput.addEventListener('input', () => {
+                const emailError = document.getElementById('emailError');
+                if (emailError && emailError.style.display === 'block') {
+                    emailError.style.display = 'none';
+                }
+            });
+        }
+        
+        if (passwordInput) {
+            passwordInput.addEventListener('input', () => {
+                const passwordError = document.getElementById('passwordError');
+                if (passwordError && passwordError.style.display === 'block') {
+                    passwordError.style.display = 'none';
+                }
+            });
+        }
+        
+        if (confirmPasswordInput) {
+            confirmPasswordInput.addEventListener('input', () => {
+                const confirmPasswordError = document.getElementById('confirmPasswordError');
+                if (confirmPasswordError && confirmPasswordError.style.display === 'block') {
+                    confirmPasswordError.style.display = 'none';
+                }
+            });
+        }
     }
 }
 
@@ -790,19 +889,39 @@ function handleRegister(e) {
     const password = formData.get('password');
     const confirmPassword = formData.get('confirmPassword');
 
+    // Clear previous error messages
+    clearRegisterErrors();
+
     // Validation
-    if (!name || !email || !password || !confirmPassword) {
-        showMessage('Vui lòng điền đầy đủ thông tin!', 'error');
-        return;
+    let hasErrors = false;
+    
+    if (!name || name.trim() === '') {
+        showRegisterError('nameError', 'Vui lòng nhập họ và tên');
+        hasErrors = true;
+    }
+    
+    if (!email || email.trim() === '') {
+        showRegisterError('emailError', 'Vui lòng nhập email');
+        hasErrors = true;
+    }
+    
+    if (!password || password.trim() === '') {
+        showRegisterError('passwordError', 'Vui lòng nhập mật khẩu');
+        hasErrors = true;
+    } else if (password.length < 6) {
+        showRegisterError('passwordError', 'Mật khẩu phải có ít nhất 6 ký tự');
+        hasErrors = true;
+    }
+    
+    if (!confirmPassword || confirmPassword.trim() === '') {
+        showRegisterError('confirmPasswordError', 'Vui lòng xác nhận mật khẩu');
+        hasErrors = true;
+    } else if (password && confirmPassword && password !== confirmPassword) {
+        showRegisterError('confirmPasswordError', 'Mật khẩu xác nhận không khớp');
+        hasErrors = true;
     }
 
-    if (password !== confirmPassword) {
-        showMessage('Mật khẩu xác nhận không khớp!', 'error');
-        return;
-    }
-
-    if (password.length < 6) {
-        showMessage('Mật khẩu phải có ít nhất 6 ký tự!', 'error');
+    if (hasErrors) {
         return;
     }
 
@@ -827,6 +946,21 @@ function handleRegister(e) {
             window.location.href = 'login.html';
         }, 1500);
     }, 1000);
+}
+
+function showRegisterError(errorId, message) {
+    const errorElement = document.getElementById(errorId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+}
+
+function clearRegisterErrors() {
+    const errorElements = document.querySelectorAll('#registerForm .error-message');
+    errorElements.forEach(element => {
+        element.style.display = 'none';
+    });
 }
 
 // Utility functions
@@ -940,6 +1074,305 @@ function updateNavigation() {
             ordersLink.style.display = 'none';
         }
     }
+    
+    // Highlight current menu item
+    highlightCurrentMenuItem();
+}
+
+// Highlighted menu item functionality
+function highlightCurrentMenuItem() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Remove active class from all links
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Add active class to current page link
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || 
+            (currentPage === '' && href === 'index.html') ||
+            (currentPage === 'index.html' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Automatic billing address input functionality
+function initBillingAddress() {
+    const billingAddressCheckbox = document.getElementById('sameAsShipping');
+    const shippingAddress = document.getElementById('address');
+    const billingAddress = document.getElementById('billingAddress');
+    
+    if (billingAddressCheckbox && shippingAddress && billingAddress) {
+        // Auto-fill billing address when checkbox is checked
+        billingAddressCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                billingAddress.value = shippingAddress.value;
+                billingAddress.disabled = true;
+                billingAddress.style.backgroundColor = '#f8f9fa';
+            } else {
+                billingAddress.disabled = false;
+                billingAddress.style.backgroundColor = 'white';
+                billingAddress.value = '';
+            }
+        });
+        
+        // Auto-fill when shipping address changes (if checkbox is checked)
+        shippingAddress.addEventListener('input', function() {
+            if (billingAddressCheckbox.checked) {
+                billingAddress.value = this.value;
+            }
+        });
+    }
+}
+
+// Adaptive credit card length functionality
+function initCreditCardValidation() {
+    const cardNumberInput = document.getElementById('cardNumber');
+    const cardTypeDisplay = document.getElementById('cardType');
+    
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener('input', function() {
+            const cardNumber = this.value.replace(/\s/g, '');
+            const cardInfo = detectCardType(cardNumber);
+            
+            // Update max length based on card type
+            this.maxLength = cardInfo.maxLength;
+            
+            // Format card number with spaces
+            this.value = formatCardNumber(cardNumber, cardInfo.type);
+            
+            // Display card type
+            if (cardTypeDisplay) {
+                cardTypeDisplay.textContent = cardInfo.type;
+                cardTypeDisplay.className = `card-type ${cardInfo.type.toLowerCase()}`;
+            }
+            
+            // Validate card number
+            validateCardNumber(cardNumber, cardInfo.type);
+        });
+        
+        // Add card type icons
+        if (cardTypeDisplay) {
+            cardTypeDisplay.innerHTML = '<i class="fas fa-credit-card"></i> <span>Card Type</span>';
+        }
+    }
+}
+
+function detectCardType(cardNumber) {
+    // Remove all non-digits
+    const cleanNumber = cardNumber.replace(/\D/g, '');
+    
+    // Visa: starts with 4
+    if (/^4/.test(cleanNumber)) {
+        return { type: 'Visa', maxLength: 19 }; // 16 digits + 3 spaces
+    }
+    // Mastercard: starts with 51-55 or 2221-2720
+    else if (/^5[1-5]/.test(cleanNumber) || /^2[2-7][2-9][0-9]/.test(cleanNumber)) {
+        return { type: 'Mastercard', maxLength: 19 }; // 16 digits + 3 spaces
+    }
+    // American Express: starts with 34 or 37
+    else if (/^3[47]/.test(cleanNumber)) {
+        return { type: 'American Express', maxLength: 17 }; // 15 digits + 2 spaces
+    }
+    // Discover: starts with 6011, 622126-622925, 644-649, 65
+    else if (/^6(?:011|5)/.test(cleanNumber) || /^622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[0-1][0-9]|92[0-5])/.test(cleanNumber) || /^64[4-9]/.test(cleanNumber)) {
+        return { type: 'Discover', maxLength: 19 }; // 16 digits + 3 spaces
+    }
+    // JCB: starts with 2131, 1800, or 35
+    else if (/^(?:2131|1800|35)/.test(cleanNumber)) {
+        return { type: 'JCB', maxLength: 19 }; // 16 digits + 3 spaces
+    }
+    // Diners Club: starts with 300-305, 36, or 38
+    else if (/^3(?:0[0-5]|[68])/.test(cleanNumber)) {
+        return { type: 'Diners Club', maxLength: 17 }; // 14 digits + 3 spaces
+    }
+    // UnionPay: starts with 62
+    else if (/^62/.test(cleanNumber)) {
+        return { type: 'UnionPay', maxLength: 19 }; // 16 digits + 3 spaces
+    }
+    
+    // Default
+    return { type: 'Unknown', maxLength: 19 };
+}
+
+function formatCardNumber(cardNumber, cardType) {
+    const cleanNumber = cardNumber.replace(/\D/g, '');
+    
+    switch (cardType) {
+        case 'American Express':
+            // Format: XXXX XXXXXX XXXXX
+            return cleanNumber.replace(/(\d{4})(\d{6})(\d{5})/, '$1 $2 $3');
+        case 'Diners Club':
+            // Format: XXXX XXXXXX XXXX
+            return cleanNumber.replace(/(\d{4})(\d{6})(\d{4})/, '$1 $2 $3');
+        default:
+            // Format: XXXX XXXX XXXX XXXX
+            return cleanNumber.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/, '$1 $2 $3 $4');
+    }
+}
+
+function validateCardNumber(cardNumber, cardType) {
+    const cleanNumber = cardNumber.replace(/\D/g, '');
+    const cardError = document.getElementById('cardNumberError');
+    
+    if (!cardError) return;
+    
+    // Check length based on card type
+    let expectedLength;
+    switch (cardType) {
+        case 'American Express':
+            expectedLength = 15;
+            break;
+        case 'Diners Club':
+            expectedLength = 14;
+            break;
+        default:
+            expectedLength = 16;
+    }
+    
+    if (cleanNumber.length > 0 && cleanNumber.length !== expectedLength) {
+        cardError.textContent = `${cardType} cards must have ${expectedLength} digits`;
+        cardError.style.display = 'block';
+    } else {
+        cardError.style.display = 'none';
+    }
+    
+    // Luhn algorithm validation (basic implementation)
+    if (cleanNumber.length === expectedLength) {
+        if (isValidLuhn(cleanNumber)) {
+            cardError.style.display = 'none';
+        } else {
+            cardError.textContent = 'Invalid card number';
+            cardError.style.display = 'block';
+        }
+    }
+}
+
+function isValidLuhn(cardNumber) {
+    let sum = 0;
+    let isEven = false;
+    
+    // Loop through values starting from the rightmost side
+    for (let i = cardNumber.length - 1; i >= 0; i--) {
+        let digit = parseInt(cardNumber.charAt(i));
+        
+        if (isEven) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        
+        sum += digit;
+        isEven = !isEven;
+    }
+    
+    return (sum % 10) === 0;
+}
+
+// Credit card expiry validation
+function initCreditCardExpiryValidation() {
+    const expiryInput = document.getElementById('cardExpiry');
+    if (expiryInput) {
+        expiryInput.addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            
+            // Format as MM/YY
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            
+            this.value = value;
+            validateExpiryDate(value);
+        });
+    }
+}
+
+function validateExpiryDate(expiryDate) {
+    const expiryError = document.getElementById('cardExpiryError');
+    if (!expiryError) return;
+    
+    if (!expiryDate || expiryDate.length < 5) {
+        expiryError.style.display = 'none';
+        return;
+    }
+    
+    const [month, year] = expiryDate.split('/');
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear() % 100; // Get last 2 digits
+    const currentMonth = currentDate.getMonth() + 1; // January is 0
+    
+    const expMonth = parseInt(month);
+    const expYear = parseInt(year);
+    
+    if (expMonth < 1 || expMonth > 12) {
+        expiryError.textContent = 'Tháng không hợp lệ';
+        expiryError.style.display = 'block';
+        return;
+    }
+    
+    if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
+        expiryError.textContent = 'Thẻ đã hết hạn';
+        expiryError.style.display = 'block';
+        return;
+    }
+    
+    expiryError.style.display = 'none';
+}
+
+// Credit card CVV validation
+function initCreditCardCvvValidation() {
+    const cvvInput = document.getElementById('cardCvv');
+    const cardNumberInput = document.getElementById('cardNumber');
+    
+    if (cvvInput) {
+        cvvInput.addEventListener('input', function() {
+            // Only allow digits
+            this.value = this.value.replace(/\D/g, '');
+            
+            // Set max length based on card type
+            const cardNumber = cardNumberInput ? cardNumberInput.value.replace(/\s/g, '') : '';
+            const cardInfo = detectCardType(cardNumber);
+            
+            if (cardInfo.type === 'American Express') {
+                this.maxLength = 4; // Amex has 4-digit CVV
+            } else {
+                this.maxLength = 3; // Other cards have 3-digit CVV
+            }
+            
+            validateCvv(this.value, cardInfo.type);
+        });
+    }
+}
+
+function validateCvv(cvv, cardType) {
+    const cvvError = document.getElementById('cardCvvError');
+    if (!cvvError) return;
+    
+    if (!cvv) {
+        cvvError.style.display = 'none';
+        return;
+    }
+    
+    const expectedLength = cardType === 'American Express' ? 4 : 3;
+    
+    if (cvv.length !== expectedLength) {
+        cvvError.textContent = `CVV phải có ${expectedLength} chữ số`;
+        cvvError.style.display = 'block';
+        return;
+    }
+    
+    if (!/^\d+$/.test(cvv)) {
+        cvvError.textContent = 'CVV chỉ được chứa chữ số';
+        cvvError.style.display = 'block';
+        return;
+    }
+    
+    cvvError.style.display = 'none';
 }
 
 

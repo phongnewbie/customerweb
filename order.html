@@ -104,6 +104,57 @@
                             <textarea id="notes" name="notes" rows="3" placeholder="Ghi chú đặc biệt cho đơn hàng..."></textarea>
                         </div>
                         
+                        <!-- Billing Address Section -->
+                        <div class="form-section">
+                            <h3>Thông tin thanh toán</h3>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="sameAsShipping" name="sameAsShipping">
+                                    <span>Địa chỉ thanh toán giống địa chỉ giao hàng</span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="billingAddress">Địa chỉ thanh toán</label>
+                                <textarea id="billingAddress" name="billingAddress" rows="3" placeholder="Nhập địa chỉ thanh toán..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Credit Card Section -->
+                        <div class="form-section">
+                            <h3>Thông tin thẻ tín dụng</h3>
+                            
+                            <div class="form-group">
+                                <label for="cardNumber">Số thẻ *</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                <div id="cardType" class="card-type-display">
+                                    <i class="fas fa-credit-card"></i> <span>Card Type</span>
+                                </div>
+                                <div id="cardNumberError" class="error-message"></div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardExpiry">Ngày hết hạn *</label>
+                                    <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                                    <div id="cardExpiryError" class="error-message"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cardCvv">CVV *</label>
+                                    <input type="text" id="cardCvv" name="cardCvv" placeholder="123" maxlength="4" required>
+                                    <div id="cardCvvError" class="error-message"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cardholderName">Tên chủ thẻ *</label>
+                                <input type="text" id="cardholderName" name="cardholderName" placeholder="NGUYEN VAN A" required>
+                                <div id="cardholderNameError" class="error-message"></div>
+                            </div>
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary btn-full">
                             <span class="btn-text">Xác nhận đặt hàng</span>
                             <span class="loading" style="display: none;"></span>

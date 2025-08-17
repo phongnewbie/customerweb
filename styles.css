@@ -554,6 +554,18 @@ body {
     font-size: 0.9rem;
 }
 
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
 .checkbox-label {
     display: flex;
     align-items: center;
@@ -898,30 +910,7 @@ body {
     visibility: visible !important;
 }
 
-/* Debug: Add border to see if elements are there */
-.featured {
-    border: 2px solid red;
-}
-
-.featured-item {
-    border: 2px solid green;
-}
-
-.about-preview {
-    border: 2px solid orange;
-}
-
-.about-image {
-    border: 2px solid pink;
-}
-
-.menu-preview {
-    border: 2px solid brown;
-}
-
-.menu-preview-item {
-    border: 2px solid yellow;
-}
+/* Debug borders removed for production */
 
 /* Loading Animation */
 .loading {
@@ -1278,6 +1267,125 @@ body {
     font-family: 'Playfair Display', serif;
     color: #2c3e50;
     margin-bottom: 1.5rem;
+}
+
+/* Form Sections */
+.form-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #d4a574;
+}
+
+.form-section h3 {
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Credit Card Styles */
+.card-type-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.card-type-display i {
+    font-size: 1.2rem;
+}
+
+.card-type.visa {
+    color: #1a1f71;
+}
+
+.card-type.mastercard {
+    color: #eb001b;
+}
+
+.card-type.american-express {
+    color: #006fcf;
+}
+
+.card-type.discover {
+    color: #ff6000;
+}
+
+.card-type.jcb {
+    color: #0b4ea2;
+}
+
+.card-type.diners-club {
+    color: #0079be;
+}
+
+.card-type.unionpay {
+    color: #e21836;
+}
+
+.card-type.unknown {
+    color: #6c757d;
+}
+
+/* Enhanced Navigation Styles for Active Menu Items */
+.nav-link.active {
+    color: #d4a574 !important;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100% !important;
+}
+
+/* Billing Address Styles */
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.form-group textarea:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Credit Card Input Styles */
+#cardNumber {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+#cardExpiry {
+    font-family: 'Courier New', monospace;
+}
+
+#cardCvv {
+    font-family: 'Courier New', monospace;
+}
+
+/* Responsive Design for Form Sections */
+@media (max-width: 768px) {
+    .order-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-section {
+        padding: 1rem;
+    }
 }
 
 /* Empty Cart Styles */

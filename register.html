@@ -66,11 +66,13 @@
                     <div class="form-group">
                         <label for="name">Họ và tên *</label>
                         <input type="text" id="name" name="name" required>
+                        <div class="error-message" id="nameError" style="display: none;">Vui lòng nhập họ và tên</div>
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError" style="display: none;">Vui lòng nhập email</div>
                     </div>
                     
                     <div class="form-group">
@@ -82,11 +84,13 @@
                         <label for="password">Mật khẩu *</label>
                         <input type="password" id="password" name="password" required>
                         <small>Mật khẩu phải có ít nhất 6 ký tự</small>
+                        <div class="error-message" id="passwordError" style="display: none;">Vui lòng nhập mật khẩu</div>
                     </div>
                     
                     <div class="form-group">
                         <label for="confirmPassword">Xác nhận mật khẩu *</label>
                         <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <div class="error-message" id="confirmPasswordError" style="display: none;">Vui lòng xác nhận mật khẩu</div>
                     </div>
                     
                     <div class="form-group">
